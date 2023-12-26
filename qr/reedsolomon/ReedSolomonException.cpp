@@ -19,6 +19,7 @@
  */
 
 #include "ReedSolomonException.h"
+#include <cstring>
 
 using namespace RS;
 

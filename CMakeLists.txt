@@ -3,7 +3,8 @@ project (qr_desktop)
 
 find_package (OpenCV REQUIRED)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -g -O3 -ftree-vectorize")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -g -O3 -ftree-vectorize")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories("./qr")
 aux_source_directory ("./qr" QR_SRC_LIST)

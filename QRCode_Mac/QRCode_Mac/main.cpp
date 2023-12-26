@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <random>
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
@@ -29,8 +30,12 @@ void testMessageCorrection() {
         vector<bool> bits = alphabet.encode(message);
         // повреждаем данные
         for (int i = 0; i < damageCount; i++) {
-            // int idx = arc4random() % bits.size();
-            int idx = arc4random_uniform(bits.size());
+            std::random_device rd;
+            std::mt19937 gen(rd());
+            std::uniform_int_distribution<int> dis(0, bits.size() - 1);
+
+            int idx = dis(gen);
+            
             bits[idx] = !bits[idx];
         }
         string encodedMessage = alphabet.decode(bits);

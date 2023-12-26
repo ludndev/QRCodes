@@ -16,4 +16,9 @@ Presentation: [video](https://youtu.be/77TUO-IZmco), [slides](https://docs.googl
 - Install OpenCV
 https://stackoverflow.com/a/26193046/13158370
 
+- Run
+```sh
+cmake . && make && ./qr_desktop
+```
+
 

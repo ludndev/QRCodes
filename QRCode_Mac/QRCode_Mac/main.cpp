@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
 //    testMessageCorrection();
 //    return 0;
     
-    string imgPath = "/Users/alex/Desktop/qr_example.png";
+    string imgPath = "~/demo_images/qr_example.png";
     if (argc == 2) {
         imgPath = string(argv[1]);
     }

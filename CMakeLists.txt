@@ -7,11 +7,13 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add macOS-specific flags
-if(APPLE)
-    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -g -O3 -ftree-vectorize")
-    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+if (APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    find_library(COREFOUNDATION CoreFoundation)
+    find_library(SECURITY Security)
+    target_link_libraries(qr_desktop ${COREFOUNDATION} ${SECURITY})
 endif()
+
 
 include_directories("./qr")
 aux_source_directory ("./qr" QR_SRC_LIST)

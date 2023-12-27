@@ -19,3 +19,5 @@ CMakeFiles/
 cmake_install.cmake
 CMakeCache.txt
 MakeFile
+
+qrcode_generate_test.png

@@ -17,6 +17,8 @@
 #include "image_data_extractor.hpp"
 #include "alphabet.hpp"
 
+#include "QRCodeDrawer.h"
+
 using namespace std;
 using namespace cv;
 
@@ -49,11 +51,38 @@ void testMessageCorrection() {
     }
 }
 
+
+void generate() {
+    // Your message to encode
+    std::string message = "Hello, QR Code!";
+
+    // Image size
+    cv::Size imageSize(400, 400);
+
+    // Draw QR code message on an image
+    cv::Mat qrImage = QRCodeDrawer::drawQRMessage(message, imageSize);
+
+    // Check if the image is valid
+    if (!qrImage.empty()) {
+        // Save the QR code image to a file
+        cv::imwrite("qrcode_generate_test.png", qrImage);
+        // cv::imshow("QR Code Image", qrImage);
+        cv::waitKey(0);
+        std::cout << "QR code successfully generated and saved as qrcode_generate_test.png.\n";
+    } else {
+        std::cerr << "Error: Failed to generate QR code.\n";
+    }
+}
+
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n\n";
 //    testMessageCorrection();
 //    return 0;
+
+    generate();
+    return 0;
     
     string imgPath = "~/demo_images/qr_example.png";
     if (argc == 2) {

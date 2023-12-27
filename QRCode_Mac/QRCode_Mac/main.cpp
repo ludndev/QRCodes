@@ -78,13 +78,14 @@ void generate() {
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n\n";
+
 //    testMessageCorrection();
 //    return 0;
 
-    generate();
-    return 0;
+    // generate();
+    // return 0;
     
-    string imgPath = "~/demo_images/qr_example.png";
+    string imgPath = "demo_images/qr_example.png";
     if (argc == 2) {
         imgPath = string(argv[1]);
     }
